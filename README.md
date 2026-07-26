@@ -36,7 +36,7 @@ Missing optional utilities (dmidecode, wlandebug, ...) are recorded in the
 report and never abort the run; individual command failures are annotated
 in each capture's header.
 
-# Software License
+## Software License
 
 Copyright (c) 2026 Vester Imanuel Thacker
 
