@@ -20,21 +20,6 @@ Produces:
 Exit codes: 0 clean run, 1 usage error (not root, unwritable CWD),
 2 diagnostics completed with at least one FAIL finding.
 
-## Report layout
-
-    SUMMARY.txt          counts, likely cause, confidence, recommended actions
-    diag.log             mirror of the terminal output
-    analysis/results.txt every check with its explanation
-    system/              uname, freebsd-version -ku, kenv, bectl, ZFS boot info
-    hardware/            pciconf -lv/-l, usbconfig, camcontrol, dmidecode
-    network/             ifconfig -a, netstat -rn, sockstat, arp -an
-    wireless/            ifconfig -m, wlandebug, wireless dmesg slice
-    kernel/              kldstat, kern.module_path, full sysctl -a
-    firmware/            /boot/firmware inventory: stat, sha256, file(1) type
-    packages/            pkg info/check -sa/version/audit, focused pkg info -l
-    config/              loader.conf(.local), rc.conf(.local), devmatch, sysctl.conf
-    logs/                full dmesg plus topic-filtered slices
-
 ## Analysis engine
 
 Checks run along the hardware → driver → firmware → interface chain:
@@ -51,4 +36,23 @@ Missing optional utilities (dmidecode, wlandebug, ...) are recorded in the
 report and never abort the run; individual command failures are annotated
 in each capture's header.
 
-MIT licensed.
+# Software License
+
+Copyright (c) 2026 Vester Imanuel Thacker
+
+All rights reserved.
+
+This software is licensed, not sold.
+
+Permission is granted to download, install, and use the unmodified binary form of this software for any lawful purpose, subject to the following conditions:
+
+1. You may not modify, reverse engineer, decompile, disassemble, or create derivative works of this software except where such restrictions are prohibited by applicable law.
+2. You may not redistribute, sublicense, rent, lease, or sell this software without prior written permission from the copyright holder.
+3. This license does not grant any rights to the source code. No source code is provided or implied.
+4. All copyright, trademark, and other proprietary notices must remain intact.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF THE SOFTWARE.
+
+Any rights not expressly granted by this license are reserved by the copyright holder.
